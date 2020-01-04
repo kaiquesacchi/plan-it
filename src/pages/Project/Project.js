@@ -1,5 +1,8 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+
 function Project() {
-  return <h1>Project Page</h1>;
+  const { id } = useParams();
+  return <h1>Project Page - ID: {id}</h1>;
 }
 export default Project;
