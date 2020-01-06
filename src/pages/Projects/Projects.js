@@ -15,7 +15,7 @@ function Projects() {
         <AiOutlineDelete />
       </Header>
       <div style={{ height: '200vh' }}>Content</div>
-      <Footer />
+      <Footer active="Projects" />
     </div>
   );
 }

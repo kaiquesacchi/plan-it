@@ -1,7 +1,15 @@
 import React from 'react';
 import './Settings.sass';
 
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
 function Settings() {
-  return <h1>Settings Page</h1>;
+  return (
+    <div className="page-Settings">
+      <Header title="Settings" />
+      <Footer active="Settings" />
+    </div>
+  );
 }
 export default Settings;
