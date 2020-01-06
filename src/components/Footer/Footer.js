@@ -12,6 +12,7 @@ function Footer({ active }) {
   };
 
   return (
+    <>
     <section id="component-Footer">
       <span className={className('General')} onClick={() => onClick('General')}>
         General
@@ -23,6 +24,8 @@ function Footer({ active }) {
         Settings
       </span>
     </section>
+    <div style={{height: '60px'}}></div>
+    </>
   );
 }
 export default Footer;
