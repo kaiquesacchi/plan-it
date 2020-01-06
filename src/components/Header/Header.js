@@ -21,7 +21,7 @@ function Header({ title, children }) {
     };
 
     return () => (window.onscroll = null);
-  }, []);
+  });
 
   return (
     <section id="component-Header">
