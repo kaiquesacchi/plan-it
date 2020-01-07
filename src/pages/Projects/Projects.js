@@ -15,7 +15,7 @@ function Projects() {
         <FaPlus />
         <AiOutlineDelete />
       </Header>
-      <section className="content">
+      <section id="content">
         <Card title="Project 1" backgroundColor="#85CBCC" />
         <Card title="Project 2" backgroundColor="#A8DEE0" />
         <Card title="Project 3" backgroundColor="#F9E2AE" />
