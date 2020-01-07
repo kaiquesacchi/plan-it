@@ -19,7 +19,7 @@ function Settings() {
       <section id="content">
         <ul className="group innerBackground">
           <li>
-            Config name
+            Enable Dark theme
             <Toggle
               callback={updateTheme}
               initial={localStorage.getItem('theme') === 'dark'}

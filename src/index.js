@@ -12,7 +12,11 @@ import General from './pages/General';
 import Settings from './pages/Settings';
 
 // Loads a color theme.
-const theme = localStorage.getItem('theme') || 'light';
+let theme = localStorage.getItem('theme');
+if (theme === null) {
+  localStorage.setItem('theme', 'light');
+  theme = 'light';
+}
 const themeFile = 'theme-' + theme + '.css';
 document.getElementById('theme-css').href = themeFile;
 
