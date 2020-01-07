@@ -8,10 +8,10 @@ import Toggle from '../../components/inputs/Toggle';
 
 function Settings() {
   return (
-    <div id="page-Settings">
+    <div id="page-Settings" className="outerBackground">
       <Header title="Settings" />
       <section id="content">
-        <ul className="group">
+        <ul className="group innerBackground">
           <li>
             Config name
             <Toggle />

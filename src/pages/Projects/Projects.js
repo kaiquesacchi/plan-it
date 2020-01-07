@@ -10,7 +10,7 @@ import Footer from '../../components/Footer';
 
 function Projects() {
   return (
-    <div id="page-Projects">
+    <div id="page-Projects" className="outerBackground">
       <Header title="My Projects">
         <FaPlus />
         <AiOutlineDelete />

@@ -11,6 +11,12 @@ import NewProject from './pages/NewProject';
 import General from './pages/General';
 import Settings from './pages/Settings';
 
+if (true) {
+  require('./styles/theme-dark.sass');
+} else {
+  require('./styles/theme-light.sass');
+}
+
 ReactDOM.render(
   <Router>
     <Switch>

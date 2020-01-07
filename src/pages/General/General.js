@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 
 function General() {
   return (
-    <div id="page-General">
+    <div id="page-General" className="outerBackground">
       <Header title="General" />
       <Footer active="General" />
     </div>
