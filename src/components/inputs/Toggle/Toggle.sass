@@ -1,0 +1,39 @@
+$body-width: 36px
+$body-height: 16px
+$selector-size: $body-height + 4px
+
+@keyframes toggleAction-selector
+    from
+        left: -5px
+    to
+        left: $body-width - $selector-size + 5px
+        
+@keyframes toggleAction-selector-reverse
+    from
+        left: $body-width - $selector-size + 5px
+    to
+        left: -5px
+
+#component-Toggle
+    div.body
+        width: $body-width
+        height: $body-height
+        border-radius: $body-height
+        border: 1px solid black
+        display: flex
+        align-items: center
+        &.on
+            background-color: lightblue
+        div.selector
+            width: $selector-size
+            height: $selector-size
+            border-radius: $selector-size
+            border: 1px solid black
+            background-color: white
+            position: relative
+            &.off
+                left: -5px
+                animation: toggleAction-selector-reverse 0.3s ease
+            &.on
+                left: $body-width - $selector-size + 5px
+                animation: toggleAction-selector 0.3s ease
