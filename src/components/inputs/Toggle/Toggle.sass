@@ -7,7 +7,7 @@ $selector-size: $body-height + 4px
         left: -5px
     to
         left: $body-width - $selector-size + 5px
-        
+
 @keyframes toggleAction-selector-reverse
     from
         left: $body-width - $selector-size + 5px
@@ -19,16 +19,18 @@ $selector-size: $body-height + 4px
         width: $body-width
         height: $body-height
         border-radius: $body-height
-        border: 1px solid black
+        border-width: 1px
+        border-style: solid
         display: flex
         align-items: center
         &.on
-            background-color: lightblue
+            background-color: #008bfd
         div.selector
             width: $selector-size
             height: $selector-size
             border-radius: $selector-size
-            border: 1px solid black
+            border-width: 1.5px
+            border-style: solid
             background-color: white
             position: relative
             &.off
@@ -37,3 +39,4 @@ $selector-size: $body-height + 4px
             &.on
                 left: $body-width - $selector-size + 5px
                 animation: toggleAction-selector 0.3s ease
+                border-color: #008bfd

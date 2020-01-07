@@ -9,3 +9,7 @@
 .innerBackground {
   background-color: #333;
 }
+
+.active {
+  color: #26f0a2;
+}

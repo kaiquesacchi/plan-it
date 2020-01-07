@@ -8,3 +8,6 @@
 .innerBackground {
   background-color: white;
 }
+.active {
+  color: #29724a;
+}
