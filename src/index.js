@@ -11,11 +11,10 @@ import NewProject from './pages/NewProject';
 import General from './pages/General';
 import Settings from './pages/Settings';
 
-if (true) {
-  require('./styles/theme-dark.sass');
-} else {
-  require('./styles/theme-light.sass');
-}
+// Loads a color theme.
+const theme = localStorage.getItem('theme') || 'light';
+const themeFile = 'theme-' + theme + '.css';
+document.getElementById('theme-css').href = themeFile;
 
 ReactDOM.render(
   <Router>

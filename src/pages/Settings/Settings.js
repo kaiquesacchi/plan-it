@@ -7,6 +7,12 @@ import Footer from '../../components/Footer';
 import Toggle from '../../components/inputs/Toggle';
 
 function Settings() {
+  const updateTheme = darkTheme => {
+    const theme = darkTheme ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    document.getElementById('theme-css').href = 'theme-' + theme + '.css';
+  };
+
   return (
     <div id="page-Settings" className="outerBackground">
       <Header title="Settings" />
@@ -14,7 +20,10 @@ function Settings() {
         <ul className="group innerBackground">
           <li>
             Config name
-            <Toggle />
+            <Toggle
+              callback={updateTheme}
+              initial={localStorage.getItem('theme') === 'dark'}
+            />
           </li>
           <li>Config name</li>
           <li>Config name</li>
