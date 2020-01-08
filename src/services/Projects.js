@@ -1,13 +1,13 @@
 function create(project) {
   let projects = list();
-  project.id = projects.length === 0 ? 0 : projects[-1].id + 1;
+  project.id = projects.length === 0 ? 0 : projects[projects.length - 1].id + 1;
   projects = [...projects, project];
   localStorage.setItem('projects', JSON.stringify(projects));
   return projects;
 }
 
 function list() {
-  return JSON.parse(localStorage.getItem('projects'));
+  return JSON.parse(localStorage.getItem('projects')) || [];
 }
 
 function get(id) {

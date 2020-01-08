@@ -28,7 +28,7 @@ function Projects() {
           <Card
             key={project.id}
             id={project.id}
-            title={project.name}
+            title={project.title}
             backgroundColor={project[theme + 'Color']}
           />
         ))}
