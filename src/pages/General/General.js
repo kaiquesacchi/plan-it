@@ -1,5 +1,4 @@
 import React from 'react';
-import './General.sass';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
