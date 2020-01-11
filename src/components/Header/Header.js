@@ -1,5 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import './Header.sass';
+
+import styled from 'styled-components';
+
+const FullHeader = styled.section`
+  display: unset;
+  background-color: inherit;
+  color: inherit;
+`;
+
+const Banner = styled.div`
+  height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  background-color: inherit;
+`;
+
+const StickyHeader = styled.header`
+  height: 80px;
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background-color: inherit;
+
+  .buttons {
+    svg {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+    svg:last-child {
+      margin-right: 0;
+    }
+  }
+`;
 
 function Header({ title, children }) {
   const bannerHeight = 220;
@@ -24,15 +66,15 @@ function Header({ title, children }) {
   });
 
   return (
-    <section id="component-Header">
-      <div className="banner">
+    <FullHeader>
+      <Banner>
         <h1 style={{ opacity: bannerOpacity, marginTop: bannerPadding }}>{title}</h1>
-      </div>
-      <header id="sticky-header">
+      </Banner>
+      <StickyHeader>
         <h1 style={{ opacity: headerOpacity }}>{title}</h1>
         <div className="buttons">{children}</div>
-      </header>
-    </section>
+      </StickyHeader>
+    </FullHeader>
   );
 }
 export default Header;
