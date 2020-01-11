@@ -1,17 +1,15 @@
 import React from 'react';
 import './Settings.sass';
 
+import ThemeContext from '../../themes/context';
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 import Toggle from '../../components/inputs/Toggle';
 
 function Settings() {
-  const updateTheme = darkTheme => {
-    const theme = darkTheme ? 'dark' : 'light';
-    localStorage.setItem('theme', theme);
-    document.getElementById('theme-css').href = 'theme-' + theme + '.css';
-  };
+  const themeControl = React.useContext(ThemeContext);
 
   return (
     <div id="page-Settings" className="outerBackground">
@@ -21,8 +19,8 @@ function Settings() {
           <li>
             Enable Dark theme
             <Toggle
-              callback={updateTheme}
-              initial={localStorage.getItem('theme') === 'dark'}
+              callback={dark => themeControl.setTheme(dark ? 'dark' : 'light')}
+              initial={themeControl.themeName === 'dark'}
             />
           </li>
           <li>Config name</li>
