@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import './Text.sass';
+import React from 'react';
+
+import styled from 'styled-components';
+
+const Input = styled.input`
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid ${props => props.theme.border};
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid ${props => props.theme.colorActive};
+  }
+`;
 
 function Text(props) {
-  const [onFocus, setOnFocus] = useState(false);
-  return (
-    <div id="component-Text">
-      <input
-        {...props}
-        className={props.className + (onFocus ? ' active' : '')}
-        onFocus={() => setOnFocus(true)}
-        onBlur={() => setOnFocus(false)}
-      />
-    </div>
-  );
+  return <Input {...props} />;
 }
 export default Text;
