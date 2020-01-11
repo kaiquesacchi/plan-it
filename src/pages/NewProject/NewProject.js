@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './NewProject.sass';
 
 import TextInput from '../../components/inputs/Text';
 import ProjectsService from '../../services/Projects';
+
+import { Page } from './styles';
 
 function NewProject() {
   const history = useHistory();
@@ -15,8 +16,8 @@ function NewProject() {
   };
 
   return (
-    <div id="page-NewProject" className="outerBackground">
-      <section id="content" className="innerBackground">
+    <Page>
+      <section id="content">
         <div className="group">
           <TextInput
             className="text-input"
@@ -42,11 +43,8 @@ function NewProject() {
         </div>
       </section>
       <section id="buttons">
-        <button className="active" onClick={history.goBack}>
-          Cancel
-        </button>
+        <button onClick={history.goBack}>Cancel</button>
         <button
-          className="active"
           onClick={() => {
             ProjectsService.create(project);
             history.goBack();
@@ -55,7 +53,7 @@ function NewProject() {
           Save
         </button>
       </section>
-    </div>
+    </Page>
   );
 }
 export default NewProject;
