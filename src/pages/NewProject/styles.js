@@ -4,7 +4,7 @@ export const Page = styled.section`
   height: 100vh;
   width: 100vw;
   background-color: ${props => props.theme.outerBackgroundColor};
-
+  color: ${props => props.theme.color};
   section#content {
     position: relative;
     left: 5%;
@@ -22,6 +22,7 @@ export const Page = styled.section`
       }
 
       .text-input {
+        color: inherit;
         font-size: 1rem;
         width: 100%;
         margin-bottom: 20px;

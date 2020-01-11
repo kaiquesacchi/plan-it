@@ -1,6 +1,5 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import './Projects.sass';
 
 import { FaPlus } from 'react-icons/fa';
 import { AiOutlineDelete } from 'react-icons/ai';
@@ -11,6 +10,8 @@ import Footer from '../../components/Footer';
 
 import ProjectsService from '../../services/Projects';
 
+import { Page } from './styles';
+
 function Projects() {
   const history = useHistory();
 
@@ -18,7 +19,7 @@ function Projects() {
   const projects = ProjectsService.list();
 
   return (
-    <div id="page-Projects" className="outerBackground">
+    <Page>
       <Header title="My Projects">
         <FaPlus onClick={() => history.push('/projects/new')} />
         <AiOutlineDelete />
@@ -34,7 +35,7 @@ function Projects() {
         ))}
       </section>
       <Footer active="Projects" />
-    </div>
+    </Page>
   );
 }
 export default Projects;
