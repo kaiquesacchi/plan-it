@@ -1,5 +1,4 @@
 import React from 'react';
-import './Settings.sass';
 
 import ThemeContext from '../../themes/context';
 
@@ -8,11 +7,13 @@ import Footer from '../../components/Footer';
 
 import Toggle from '../../components/inputs/Toggle';
 
+import { Page } from './styles';
+
 function Settings() {
   const themeControl = React.useContext(ThemeContext);
 
   return (
-    <div id="page-Settings" className="outerBackground">
+    <Page>
       <Header title="Settings" />
       <section id="content">
         <ul className="group innerBackground">
@@ -28,7 +29,7 @@ function Settings() {
         </ul>
       </section>
       <Footer active="Settings" />
-    </div>
+    </Page>
   );
 }
 export default Settings;

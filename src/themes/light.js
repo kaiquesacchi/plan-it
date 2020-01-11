@@ -1,7 +1,7 @@
 export default {
   outerBackgroundColor: '#eee',
   innerBackgroundColor: '#fff',
-  color: '#fff',
+  color: '#000',
 
   border: 'rgba(0, 0, 0, 0.2)',
 
