@@ -1,30 +1,57 @@
 import React from 'react';
-import './Footer.sass';
 
 import { useHistory } from 'react-router-dom';
+
+import styled from 'styled-components';
+
+const Body = styled.footer`
+  position: fixed;
+  bottom: 0;
+  background-color: inherit;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 5%;
+  height: 60px;
+  width: 90vw;
+
+  span {
+    padding: 0.5rem;
+
+    &.active {
+      color: ${props => props.theme.colorActive}
+    }
+  }
+
+  .active {
+    font-weight: 800;
+    border-bottom: 4px dotted;
+  }
+`;
 
 function Footer({ active }) {
   const history = useHistory();
 
   const className = name => (name === active ? 'active' : '');
   const onClick = route => {
-    if (route !== active) history.push("/" + route);
+    if (route !== active) history.push('/' + route);
   };
 
   return (
     <>
-    <section id="component-Footer">
-      <span className={className('General')} onClick={() => onClick('General')}>
-        General
-      </span>
-      <span className={className('Projects')} onClick={() => onClick('Projects')}>
-        Projects
-      </span>
-      <span className={className('Settings')} onClick={() => onClick('Settings')}>
-        Settings
-      </span>
-    </section>
-    <div style={{height: '60px'}}></div>
+      <Body>
+        <span className={className('General')} onClick={() => onClick('General')}>
+          General
+        </span>
+        <span className={className('Projects')} onClick={() => onClick('Projects')}>
+          Projects
+        </span>
+        <span className={className('Settings')} onClick={() => onClick('Settings')}>
+          Settings
+        </span>
+      </Body>
+      <div style={{height: '60px'}}></div>
     </>
   );
 }
