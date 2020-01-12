@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+import { IoIosArrowBack } from 'react-icons/io';
+
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const FullHeader = styled.section`
   display: unset;
@@ -20,17 +23,21 @@ const Banner = styled.div`
 `;
 
 const StickyHeader = styled.header`
-  height: 80px;
-
+  width: 100vw;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5%;
-  background-color: inherit;
+  #flexbox {
+    width: 100%;
+    height: 80px;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    background-color: inherit;
+  }
 
   .buttons {
     svg {
@@ -43,7 +50,18 @@ const StickyHeader = styled.header`
   }
 `;
 
-function Header({ title, children }) {
+const BackButton = styled(IoIosArrowBack)`
+  position: fixed;
+  height: 80px;
+  vertical-align: center;
+  font-size: 2rem;
+  top: 0;
+  left: 10px;
+
+`;
+
+function Header({ title, backButton = false, children }) {
+  const history = useHistory();
   const bannerHeight = 220;
 
   const [bannerPadding, setBannerPadding] = useState(0);
@@ -65,14 +83,29 @@ function Header({ title, children }) {
     return () => (window.onscroll = null);
   });
 
+  const renderBackButton = () => {
+    if (backButton) {
+      return (
+        <>
+          <BackButton onClick={history.goBack}/>
+          <div style={{ height: '80px', width: '40px', display: 'inline-box' }} />
+        </>
+      );
+    }
+    return '';
+  };
+
   return (
     <FullHeader>
       <Banner>
         <h1 style={{ opacity: bannerOpacity, marginTop: bannerPadding }}>{title}</h1>
       </Banner>
       <StickyHeader>
-        <h1 style={{ opacity: headerOpacity }}>{title}</h1>
-        <div className="buttons">{children}</div>
+        {renderBackButton()}
+        <div id="flexbox">
+          <h1 style={{ opacity: headerOpacity }}>{title}</h1>
+          <div className="buttons">{children}</div>
+        </div>
       </StickyHeader>
     </FullHeader>
   );
