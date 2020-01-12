@@ -16,7 +16,7 @@ function Settings() {
     <Page>
       <Header title="Settings" />
       <section id="content">
-        <ul className="group innerBackground">
+        <ul className="group">
           <li>
             Enable Dark theme
             <Toggle
@@ -24,6 +24,20 @@ function Settings() {
               initial={themeControl.themeName === 'dark'}
             />
           </li>
+          <li>Config name</li>
+          <li>Config name</li>
+        </ul>
+        <ul className="group">
+          <li>Config name</li>
+          <li>Config name</li>
+          <li>Config name</li>
+          <li>Config name</li>
+          <li>Config name</li>
+        </ul>
+        <ul className="group">
+          <li>Config name</li>
+          <li>Config name</li>
+          <li>Config name</li>
           <li>Config name</li>
           <li>Config name</li>
         </ul>

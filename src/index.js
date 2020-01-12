@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 // React Router
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 // Themes
 import * as themes from './themes';
@@ -42,6 +42,12 @@ function App() {
                 <Route exact path="/projects/info/:id" component={Project} />
                 <Route exact path="/general" component={General} />
                 <Route exact path="/settings" component={Settings} />
+                <Route
+                  path="/"
+                  component={() => {
+                    return <Redirect to="/projects" />;
+                  }}
+                />
               </Switch>
             </Router>
           </ThemeProvider>
