@@ -5,8 +5,6 @@ export const Page = styled.section`
   color: ${props => props.theme.color};
 
   section#content {
-    width: 90vw;
-    margin-left: 5vw;
     min-height: calc(100vh - 80px - 60px);
 
     ul.group {

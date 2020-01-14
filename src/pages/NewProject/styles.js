@@ -7,9 +7,7 @@ export const Page = styled.section`
   color: ${props => props.theme.color};
   section#content {
     position: relative;
-    left: 5%;
     top: 5%;
-    width: 90%;
     border-radius: 20px;
     padding: 5%;
     box-sizing: border-box;
