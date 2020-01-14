@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { FaPlus } from 'react-icons/fa';
 import { AiOutlineDelete } from 'react-icons/ai';
+import { GoPlus } from 'react-icons/go';
 
 import Card from '../../components/Card';
 import Header from '../../components/Header';
@@ -21,7 +21,7 @@ function Projects() {
   return (
     <Page>
       <Header title="My Projects">
-        <FaPlus onClick={() => history.push('/projects/new')} />
+        <GoPlus onClick={() => history.push('/projects/new')} />
         <AiOutlineDelete />
       </Header>
       <section id="content">

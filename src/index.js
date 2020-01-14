@@ -12,10 +12,12 @@ import ThemeContext from './themes/context';
 import { ThemeProvider } from 'styled-components';
 
 // Pages
-import Projects from './pages/Projects';
-import Project from './pages/Project';
-import NewProject from './pages/NewProject';
 import General from './pages/General';
+import IncomeAndExpenses from './pages/IncomeAndExpenses';
+import NewProject from './pages/NewProject';
+import Notes from './pages/Notes';
+import Project from './pages/Project';
+import Projects from './pages/Projects';
 import Settings from './pages/Settings';
 
 function App() {
@@ -37,10 +39,16 @@ function App() {
           <ThemeProvider theme={themeConfig.theme}>
             <Router>
               <Switch>
-                <Route exact path="/projects" component={Projects} />
-                <Route exact path="/projects/new" component={NewProject} />
-                <Route exact path="/projects/info/:id" component={Project} />
                 <Route exact path="/general" component={General} />
+                <Route exact path="/projects" component={Projects} />
+                <Route
+                  exact
+                  path="/projects/incomeAndExpenses/:id"
+                  component={IncomeAndExpenses}
+                />
+                <Route exact path="/projects/new" component={NewProject} />
+                <Route exact path="/projects/notes/:id" component={Notes} />
+                <Route exact path="/projects/info/:id" component={Project} />
                 <Route exact path="/settings" component={Settings} />
                 <Route
                   path="/"
