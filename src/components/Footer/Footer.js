@@ -35,7 +35,7 @@ function Footer({ active }) {
 
   const className = name => (name === active ? 'active' : '');
   const onClick = route => {
-    if (route !== active) history.push('/' + route);
+    if (route !== active) history.replace('/' + route);
   };
 
   return (
