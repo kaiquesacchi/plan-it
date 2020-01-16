@@ -36,7 +36,12 @@ function get(id) {
 
 function update(id, changes) {}
 
-function remove(id) {}
+function remove(idList) {
+  let projects = list();
+  projects = projects.filter(project => idList.indexOf(project.id) === -1);
+  localStorage.setItem('projects', JSON.stringify(projects));
+  return projects;
+}
 
 export default { create, list, get, update, remove };
 
