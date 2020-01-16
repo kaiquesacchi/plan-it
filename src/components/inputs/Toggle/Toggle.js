@@ -28,12 +28,12 @@ const Switch = styled.div`
   width: ${bodyWidth};
   height: ${bodyHeight};
   border-radius: ${bodyHeight};
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid ${props => props.theme.hardBorder};
   display: flex;
   align-items: center;
   &.on {
-    background-color: #008bfd;
+    border: none;
+    background-color: #3e91ff;
   }
 
   input {
@@ -47,8 +47,7 @@ const Slider = styled.div`
   width: ${selectorSize};
   height: ${selectorSize};
   border-radius: ${selectorSize};
-  border-width: 1.5px;
-  border-style: solid;
+  border: 1px solid ${props => props.theme.hardBorder};
   background-color: white;
   position: relative;
 
@@ -59,7 +58,7 @@ const Slider = styled.div`
   &.on {
     left: calc(${bodyWidth} - ${selectorSize} + 5px);
     animation: ${toggleOn} 0.3s ease;
-    border-color: #008bfd;
+    border-color: #3e91ff;
   }
 `;
 

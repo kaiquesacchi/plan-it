@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 import Toggle from '../../components/inputs/Toggle';
+import Checkbox from '../../components/inputs/Checkbox';
 
 import { Page } from './styles';
 
@@ -24,7 +25,10 @@ function Settings() {
               initial={themeControl.themeName === 'dark'}
             />
           </li>
-          <li>Config name</li>
+          <li>
+            Config name
+            <Checkbox />
+          </li>
           <li>Config name</li>
         </ul>
         <ul className="group">
