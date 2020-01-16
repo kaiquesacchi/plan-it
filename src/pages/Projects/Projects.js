@@ -7,6 +7,8 @@ import { GoPlus } from 'react-icons/go';
 import Card from '../../components/Card';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Checkbox from '../../components/inputs/Checkbox';
+
 import ProjectsService from '../../services/Projects';
 
 import { Page, ProjectCard, DeleteButtons } from './styles';
@@ -66,12 +68,12 @@ function Projects() {
       <Header title="My Projects">{headerButtons()}</Header>
       <section id="content">
         {projects.map(project => (
-          <ProjectCard key={project.id} forHtml={`delete-checkbox-${project.id}`}>
+          <ProjectCard key={project.id}>
             {removing ? (
-              <input
-                id={`delete-checkbox-${project.id}`}
-                type="checkbox"
-                onClick={event => toggleRemoveProject(project.id)}
+              <Checkbox
+                callback={() => {
+                  toggleRemoveProject(project.id);
+                }}
               />
             ) : (
               ''

@@ -14,12 +14,10 @@ export const Page = styled.section`
 
 export const ProjectCard = styled.label`
   display: flex;
-  width: 110vw;
+  width: 100vw;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
-  input {
-    margin-right: 5%;
-  }
 `;
 
 export const DeleteButtons = styled.footer`
