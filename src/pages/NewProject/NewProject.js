@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import Header from '../../components/Header';
 import TextInput from '../../components/inputs/Text';
 import ProjectsService from '../../services/Projects';
 
@@ -17,6 +18,7 @@ function NewProject() {
 
   return (
     <Page>
+      <Header title="New Project" />
       <section id="content">
         <div className="group">
           <TextInput

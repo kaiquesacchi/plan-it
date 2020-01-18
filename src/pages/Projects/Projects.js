@@ -65,7 +65,9 @@ function Projects() {
 
   return (
     <Page>
-      <Header title="My Projects">{headerButtons()}</Header>
+      <Header title={removing ? removingList.length + ' Selected' : 'My Projects'}>
+        {headerButtons()}
+      </Header>
       <section id="content">
         {projects.map(project => (
           <ProjectCard key={project.id}>
