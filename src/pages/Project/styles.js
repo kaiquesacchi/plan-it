@@ -40,6 +40,7 @@ export const Page = styled.section`
     bottom: 0;
     width: 100vw;
     height: 60px;
+    background-color: inherit;
     button {
       background-color: inherit;
       border: none;
