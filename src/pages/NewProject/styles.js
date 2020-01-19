@@ -5,14 +5,15 @@ export const Page = styled.section`
   background-color: ${props => props.theme.outerBackgroundColor};
   color: ${props => props.theme.color};
   section#content {
+    min-height: calc(100vh - 80px - 60px);
     position: relative;
     top: 5%;
-    border-radius: 20px;
-    padding: 5%;
-    box-sizing: border-box;
-    background-color: ${props => props.theme.innerBackgroundColor};
 
     .group {
+      box-sizing: border-box;
+      border-radius: 20px;
+      padding: 5%;
+      background-color: ${props => props.theme.innerBackgroundColor};
       margin-bottom: 10%;
       &:last-child {
         margin: 0;
