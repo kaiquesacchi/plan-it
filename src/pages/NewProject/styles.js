@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Page = styled.section`
-  height: 100vh;
   width: 100vw;
   background-color: ${props => props.theme.outerBackgroundColor};
   color: ${props => props.theme.color};
@@ -34,6 +33,7 @@ export const Page = styled.section`
     bottom: 0;
     width: 100vw;
     height: 60px;
+    background-color: inherit;
     button {
       background-color: inherit;
       border: none;

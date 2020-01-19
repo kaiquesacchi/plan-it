@@ -44,6 +44,7 @@ function NewProject() {
           />
         </div>
       </section>
+      <div style={{ height: '60px' }} />
       <section id="buttons">
         <button onClick={history.goBack}>Cancel</button>
         <button
