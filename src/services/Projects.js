@@ -1,3 +1,11 @@
+function getProjects() {
+  return JSON.parse(localStorage.getItem('projects')) || {};
+}
+
+function setProjects(projects) {
+  localStorage.setItem('projects', JSON.stringify(projects));
+}
+
 function create(project) {
   /*
   project = {
@@ -11,36 +19,48 @@ function create(project) {
     notes: [<Obj>]
     id: <Int>
   }
-  
   */
-  let projects = list();
+  let projects = getProjects();
+  const keys = Object.keys(projects);
+  const id = keys.length === 0 ? 0 : projects[keys[keys.length - 1]].id + 1;
   project = {
     ...project,
-    id: projects.length === 0 ? 0 : projects[projects.length - 1].id + 1,
+    id: id,
     date: new Date(),
     incomeAndExpenses: [],
     notes: []
   };
-  projects = [...projects, project];
-  localStorage.setItem('projects', JSON.stringify(projects));
-  return projects;
+
+  projects[id] = project;
+  setProjects(projects);
+
+  return Object.values(projects);
 }
 
 function list() {
-  return JSON.parse(localStorage.getItem('projects')) || [];
+  const projects = JSON.parse(localStorage.getItem('projects')) || {};
+  Object.values(projects);
+  return Object.values(projects);
 }
 
 function get(id) {
-  return list().find(project => project.id === id);
+  return getProjects()[id];
 }
 
-function update(id, changes) {}
+function update(id, changes) {
+  let projects = getProjects();
+  projects[id] = { ...projects[id], ...changes };
+  setProjects(projects);
+  return Object.values(projects);
+}
 
 function remove(idList) {
-  let projects = list();
-  projects = projects.filter(project => idList.indexOf(project.id) === -1);
-  localStorage.setItem('projects', JSON.stringify(projects));
-  return projects;
+  let projects = getProjects();
+  idList.forEach(id => {
+    delete projects[id];
+  });
+  setProjects(projects);
+  return Object.values(projects);
 }
 
 export default { create, list, get, update, remove };
