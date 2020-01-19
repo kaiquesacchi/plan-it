@@ -5,7 +5,7 @@ export const Page = styled.section`
   color: ${props => props.theme.color};
   section#content {
     min-height: calc(100vh - 80px);
-    ul.group {
+    ul {
       background-color: ${props => props.theme.innerBackgroundColor};
       padding: 0 5%;
       border-radius: 15px;
@@ -16,13 +16,19 @@ export const Page = styled.section`
         margin-bottom: 0;
       }
       li {
-        padding: 10px 0;
-        border-bottom: 1px solid ${props => props.theme.border};
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border-bottom: 1px solid ${props => props.theme.border};
+        padding: 10px 0;
         &:last-child {
           border: none;
+        }
+
+        input {
+          width: 100%;
+          height: 100%;
+          font-size: 1rem;
         }
       }
     }
