@@ -17,8 +17,10 @@ const Banner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-size: 1.5rem;
+  h1{
+    font-size: 2rem;
+    font-weight: lighter;
+  }
   background-color: inherit;
 `;
 
@@ -87,7 +89,7 @@ function Header({ title, backButton = false, children }) {
     if (backButton) {
       return (
         <>
-          <BackButton onClick={history.goBack}/>
+          <BackButton onClick={history.goBack} />
           <div style={{ height: '80px', width: '40px', display: 'inline-box' }} />
         </>
       );
