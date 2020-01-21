@@ -4,6 +4,7 @@ import ThemeContext from '../../themes/context';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ListFocusBlock from '../../components/focusBlocks/List';
 
 import Toggle from '../../components/inputs/Toggle';
 import Checkbox from '../../components/inputs/Checkbox';
@@ -17,7 +18,7 @@ function Settings() {
     <Page>
       <Header title="Settings" />
       <section id="content">
-        <ul className="group">
+        <ListFocusBlock>
           <li>
             Enable Dark theme
             <Toggle
@@ -30,21 +31,21 @@ function Settings() {
             <Checkbox />
           </li>
           <li>Config name</li>
-        </ul>
-        <ul className="group">
+        </ListFocusBlock>
+        <ListFocusBlock>
           <li>Config name</li>
           <li>Config name</li>
           <li>Config name</li>
           <li>Config name</li>
           <li>Config name</li>
-        </ul>
-        <ul className="group">
+        </ListFocusBlock>
+        <ListFocusBlock>
           <li>Config name</li>
           <li>Config name</li>
           <li>Config name</li>
           <li>Config name</li>
           <li>Config name</li>
-        </ul>
+        </ListFocusBlock>
       </section>
       <Footer active="Settings" />
     </Page>
