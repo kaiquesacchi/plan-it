@@ -4,28 +4,7 @@ export const Page = styled.section`
   background-color: ${props => props.theme.outerBackgroundColor};
   color: ${props => props.theme.color};
   section#content {
-    min-height: calc(100vh - 80px);
-    ul.group {
-      background-color: ${props => props.theme.innerBackgroundColor};
-      padding: 0 5%;
-      border-radius: 15px;
-      list-style-type: none;
-      margin-bottom: 20px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-      li {
-        padding: 10px 0;
-        border-bottom: 1px solid ${props => props.theme.border};
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        &:last-child {
-          border: none;
-        }
-      }
-    }
+    min-height: calc(100vh - 80px - 60px);
   }
   footer {
     display: grid;
@@ -34,6 +13,7 @@ export const Page = styled.section`
     bottom: 0;
     width: 100vw;
     height: 60px;
+    background-color: inherit;
     button {
       background-color: inherit;
       border: none;
@@ -42,4 +22,14 @@ export const Page = styled.section`
       color: ${props => props.theme.colorActive};
     }
   }
+`;
+
+export const TextArea = styled.textarea`
+  color: ${props => props.theme.color};
+  width: 100%;
+  min-height: 300px;
+  font-size: 1.3rem;
+  background-color: transparent;
+  border: none;
+  padding: 20px 0;
 `;

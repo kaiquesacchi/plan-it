@@ -1,36 +1,58 @@
-import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
-
-import ThemeContext from '../../themes/context';
+import React, { useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 
 import Header from '../../components/Header';
+import BasicFocusBlock from '../../components/focusBlocks/Basic';
 
 import ProjectsService from '../../services/Projects';
 
-import { Page } from './styles';
+import { Page, TextArea } from './styles';
 import { GoPlus } from 'react-icons/go';
 import { AiOutlineDelete } from 'react-icons/ai';
 
 function Notes() {
   const { id } = useParams();
   const project = ProjectsService.get(parseInt(id));
-  const theme = useContext(ThemeContext);
-  console.log(project, theme);
+  const [notes, setNotes] = useState(project.notes);
+  const history = useHistory();
+
+  const onChange = (value, index) => {
+    let newNotes = [...notes];
+    newNotes[index] = value;
+    setNotes(newNotes);
+  };
+
+  const save = () => {
+    console.log(notes);
+    ProjectsService.update(id, { notes: notes });
+  };
+
+  const add = () => setNotes([...notes, '']);
 
   return (
     <Page>
       <Header title="Notes" backButton>
-        <GoPlus />
+        <GoPlus onClick={add} />
         <AiOutlineDelete />
       </Header>
       <section id="content">
-        <ul className="group">
-          <li>Example</li>
-          <li>Example</li>
-          <li>Example</li>
-          <li>Example</li>
-        </ul>
+        {notes.map((note, index) => {
+          return (
+            <BasicFocusBlock key={index}>
+              <TextArea
+                type="text"
+                onChange={event => onChange(event.target.value, index)}
+                value={note}
+              />
+            </BasicFocusBlock>
+          );
+        })}
       </section>
+      <div style={{ height: '60px' }} />
+      <footer>
+        <button onClick={history.goBack}>Cancel</button>
+        <button onClick={save}>Save</button>
+      </footer>
     </Page>
   );
 }
