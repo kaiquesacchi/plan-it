@@ -22,10 +22,11 @@ const Banner = styled.div`
     font-weight: lighter;
   }
   background-color: inherit;
-`;
+  `;
 
 const StickyHeader = styled.header`
   width: 100vw;
+  background-color: inherit;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
