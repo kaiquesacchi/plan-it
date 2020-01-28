@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FocusBlock = styled.div`
+import Checkbox from '../../inputs/Checkbox';
+
+const FocusBlock = styled.label`
   background-color: ${props => props.theme.innerBackgroundColor};
   border: 1px solid ${props => props.theme.border};
   border-radius: 20px;
@@ -11,12 +13,21 @@ const FocusBlock = styled.div`
   box-sizing: border-box;
 
   margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
   &:last-child {
     margin-bottom: 0;
   }
+  position: relative;
 `;
 
-function Basic({ children }) {
-  return <FocusBlock>{children}</FocusBlock>;
+function Basic({ selecting = true, children }) {
+  return (
+    <FocusBlock>
+      {selecting ? <Checkbox /> : ''}
+      {children}
+    </FocusBlock>
+  );
 }
 export default Basic;

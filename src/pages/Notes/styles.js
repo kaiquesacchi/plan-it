@@ -28,7 +28,17 @@ export const TextArea = styled.textarea`
   color: ${props => props.theme.color};
   width: 100%;
   min-height: 300px;
-  font-size: 1.3rem;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  padding: 20px 0;
+`;
+
+export const UnclickableText = styled.p`
+  color: ${props => props.theme.color};
+  width: 100%;
+  min-height: 300px;
+  font-size: 20px;
   background-color: transparent;
   border: none;
   padding: 20px 0;

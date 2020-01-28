@@ -6,7 +6,7 @@ import BasicFocusBlock from '../../components/focusBlocks/Basic';
 
 import ProjectsService from '../../services/Projects';
 
-import { Page, TextArea } from './styles';
+import { Page, TextArea, UnclickableText } from './styles';
 import { GoPlus } from 'react-icons/go';
 import { AiOutlineDelete } from 'react-icons/ai';
 
@@ -14,6 +14,7 @@ function Notes() {
   const { id } = useParams();
   const project = ProjectsService.get(parseInt(id));
   const [notes, setNotes] = useState(project.notes);
+
   const history = useHistory();
 
   const onChange = (value, index) => {
@@ -29,21 +30,27 @@ function Notes() {
 
   const add = () => setNotes([...notes, '']);
 
+  const [removing, setRemoving] = useState(false);
+
   return (
     <Page>
       <Header title="Notes" backButton>
         <GoPlus onClick={add} />
-        <AiOutlineDelete />
+        <AiOutlineDelete onClick={() => setRemoving(!removing)} />
       </Header>
       <section id="content">
         {notes.map((note, index) => {
           return (
-            <BasicFocusBlock key={index}>
-              <TextArea
-                type="text"
-                onChange={event => onChange(event.target.value, index)}
-                value={note}
-              />
+            <BasicFocusBlock key={index} selecting={removing}>
+              {removing ? (
+                <UnclickableText>{note}</UnclickableText>
+              ) : (
+                <TextArea
+                  type="text"
+                  onChange={event => onChange(event.target.value, index)}
+                  value={note}
+                />
+              )}
             </BasicFocusBlock>
           );
         })}
