@@ -27,7 +27,7 @@ export const Page = styled.section`
 export const TextArea = styled.textarea`
   color: ${props => props.theme.color};
   width: 100%;
-  min-height: 300px;
+  min-height: 200px;
   font-size: 20px;
   background-color: transparent;
   border: none;
@@ -37,7 +37,7 @@ export const TextArea = styled.textarea`
 export const UnclickableText = styled.p`
   color: ${props => props.theme.color};
   width: 100%;
-  min-height: 300px;
+  min-height: 200px;
   font-size: 20px;
   background-color: transparent;
   border: none;
