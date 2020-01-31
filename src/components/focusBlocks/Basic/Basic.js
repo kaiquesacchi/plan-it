@@ -22,7 +22,7 @@ const FocusBlock = styled.label`
   position: relative;
 `;
 
-function Basic({ selecting = true, callback = () => {}, children }) {
+function Basic({ selecting = false, callback = () => {}, children }) {
   return (
     <FocusBlock>
       {selecting ? <Checkbox callback={callback} /> : ''}
