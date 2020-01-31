@@ -60,7 +60,6 @@ const BackButton = styled(IoIosArrowBack)`
   font-size: 2rem;
   top: 0;
   left: 10px;
-
 `;
 
 function Header({ title, backButton = false, children }) {

@@ -1,21 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import ThemeContext from '../../themes/context';
-
 import Header from '../../components/Header';
+import BasicFocusBlock from '../../components/focusBlocks/Basic';
 
 import ProjectsService from '../../services/Projects';
 
-import { Page } from './styles';
+import { Page, BlockContent } from './styles';
 import { GoPlus } from 'react-icons/go';
 import { AiOutlineDelete } from 'react-icons/ai';
 
 function IncomeAndExpenses() {
   const { id } = useParams();
   const project = ProjectsService.get(parseInt(id));
-  const theme = useContext(ThemeContext);
-  console.log(project, theme);
+
+  const [IAE] = useState(project.incomeAndExpenses);
 
   return (
     <Page>
@@ -24,12 +23,18 @@ function IncomeAndExpenses() {
         <AiOutlineDelete />
       </Header>
       <section id="content">
-        <ul className="group">
-          <li>Example</li>
-          <li>Example</li>
-          <li>Example</li>
-          <li>Example</li>
-        </ul>
+        {IAE.map((element, index) => {
+          return (
+            <BasicFocusBlock key={index} selecting={false} callback={() => {}}>
+              <BlockContent>
+                <span>{element.title}</span>
+                <span style={{ color: element.value > 0 ? 'green' : 'red' }}>
+                  {element.value}
+                </span>
+              </BlockContent>
+            </BasicFocusBlock>
+          );
+        })}
       </section>
     </Page>
   );
