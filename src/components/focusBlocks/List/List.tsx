@@ -19,7 +19,11 @@ const ListStyle = styled.ul`
   }
 `;
 
-function List({ children }) {
+interface Props {
+  children?: any;
+}
+
+function List({ children }: Props) {
   return (
     <BasicFocusBlock>
       <ListStyle>{children}</ListStyle>

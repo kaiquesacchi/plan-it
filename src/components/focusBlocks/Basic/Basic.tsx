@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChildren, FunctionComponent } from 'react';
 import styled from 'styled-components';
 
 import Checkbox from '../../inputs/Checkbox';
@@ -22,7 +22,17 @@ const FocusBlock = styled.label`
   position: relative;
 `;
 
-function Basic({ selecting = false, callback = () => {}, children }) {
+interface Props {
+  selecting?: boolean;
+  callback?: any;
+  children?: any;
+}
+
+function Basic({
+  selecting = false,
+  callback = (checked: boolean) => {},
+  children
+}: Props) {
   return (
     <FocusBlock>
       {selecting ? <Checkbox callback={callback} /> : ''}
