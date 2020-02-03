@@ -1,4 +1,4 @@
-rm -rf ./build ./www/build
+rm -rf ./build ./www/build ~/Desktop/plan-it.apk
 npm run build
 mv ./build ./www
 cordova build android
