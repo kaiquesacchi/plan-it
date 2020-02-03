@@ -19,9 +19,17 @@ function General() {
             <span>Projects</span>
             <span>{projects.length}</span>
           </li>
-          <li>Example</li>
-          <li>Example</li>
-          <li>Example</li>
+          <li>
+            <span>Total Balance</span>
+            <span>
+              {// Sum of all Income and Expenses of all projects.
+              projects.reduce(
+                (a, b) =>
+                  a + b.incomeAndExpenses.reduce((c, d) => c + parseFloat(d.value), 0),
+                0
+              )}
+            </span>
+          </li>
         </ListFocusBlock>
       </section>
       <Footer active="General" />
