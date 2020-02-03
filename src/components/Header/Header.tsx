@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactChildren } from 'react';
 
 import { IoIosArrowBack } from 'react-icons/io';
 
@@ -63,7 +63,14 @@ const BackButton = styled(IoIosArrowBack)`
   left: 10px;
 `;
 
-function Header({ title, backButton = false, children }) {
+interface Props {
+  title: string,
+  backButton: boolean,
+  children: ReactChildren
+}
+
+
+function Header({ title, backButton = false, children }: Props) {
   const history = useHistory();
   const bannerHeight = 220;
 
@@ -83,7 +90,7 @@ function Header({ title, backButton = false, children }) {
       }
     };
 
-    return () => (window.onscroll = null);
+    return () => {window.onscroll = null};
   });
 
   const renderBackButton = () => {
