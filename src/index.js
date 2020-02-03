@@ -12,6 +12,7 @@ import ThemeContext from './themes/context';
 import { ThemeProvider } from 'styled-components';
 
 // Pages
+import EditIncomeAndExpenses from './pages/EditIncomeAndExpenses';
 import General from './pages/General';
 import IncomeAndExpenses from './pages/IncomeAndExpenses';
 import NewIncomeAndExpenses from './pages/NewIncomeAndExpenses';
@@ -40,6 +41,11 @@ function App() {
           <ThemeProvider theme={themeConfig.theme}>
             <Router>
               <Switch>
+                <Route
+                  exact
+                  path="/projects/incomeAndExpenses/edit/:id/:index"
+                  component={EditIncomeAndExpenses}
+                />
                 <Route exact path="/general" component={General} />
                 <Route exact path="/projects" component={Projects} />
                 <Route

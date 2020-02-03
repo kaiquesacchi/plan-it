@@ -74,7 +74,12 @@ function IncomeAndExpenses() {
               selecting={removing}
               callback={checked => toggleList(index, checked)}
             >
-              <BlockContent>
+              <BlockContent
+                onClick={() => {
+                  if (removing) return;
+                  history.push(`/projects/incomeAndExpenses/edit/${id}/${index}`);
+                }}
+              >
                 <span>{element.title}</span>
                 <span style={{ color: element.value > 0 ? 'green' : 'red' }}>
                   {element.value}
