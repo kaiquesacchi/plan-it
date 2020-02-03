@@ -30,11 +30,15 @@ const Body = styled.footer`
   }
 `;
 
-function Footer({ active }) {
+interface Props {
+  active: string
+}
+
+function Footer({ active }: Props) {
   const history = useHistory();
 
-  const className = name => (name === active ? 'active' : '');
-  const onClick = route => {
+  const className = (name: string) => (name === active ? 'active' : '');
+  const onClick = (route: string) => {
     if (route !== active) history.replace('/' + route);
   };
 
