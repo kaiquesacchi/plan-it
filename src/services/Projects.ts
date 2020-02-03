@@ -1,4 +1,5 @@
 interface ProjectArtifact {
+  [index: string]: any;
   title: string;
   lightColor: string;
   darkColor: string;

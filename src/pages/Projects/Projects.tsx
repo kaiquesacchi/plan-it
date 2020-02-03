@@ -20,12 +20,12 @@ function Projects() {
 
   // Remove Projects ___________________________________________________
   const [removing, setRemoving] = useState(false);
-  const [removingList, setRemovingList] = useState([]);
+  const [removingList, setRemovingList] = useState<number[]>([]);
   const toggleRemoving = () => {
     setRemoving(!removing);
     setRemovingList([]);
   };
-  const toggleRemoveProject = id => {
+  const toggleRemoveProject = (id: number) => {
     const index = removingList.indexOf(id);
     if (index === -1) setRemovingList([...removingList, id]);
     else {
