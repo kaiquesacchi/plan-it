@@ -14,6 +14,7 @@ import { ThemeProvider } from 'styled-components';
 // Pages
 import General from './pages/General';
 import IncomeAndExpenses from './pages/IncomeAndExpenses';
+import NewIncomeAndExpenses from './pages/NewIncomeAndExpenses';
 import NewProject from './pages/NewProject';
 import Notes from './pages/Notes';
 import Project from './pages/Project';
@@ -45,6 +46,11 @@ function App() {
                   exact
                   path="/projects/incomeAndExpenses/:id"
                   component={IncomeAndExpenses}
+                />
+                <Route
+                  exact
+                  path="/projects/incomeAndExpenses/new/:id"
+                  component={NewIncomeAndExpenses}
                 />
                 <Route exact path="/projects/new" component={NewProject} />
                 <Route exact path="/projects/notes/:id" component={Notes} />

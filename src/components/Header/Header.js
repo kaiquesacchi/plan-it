@@ -20,6 +20,7 @@ const Banner = styled.div`
   h1{
     font-size: 2rem;
     font-weight: lighter;
+    text-align: center;
   }
   background-color: inherit;
   `;

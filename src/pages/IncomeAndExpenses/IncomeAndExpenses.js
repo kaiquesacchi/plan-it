@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import BasicFocusBlock from '../../components/focusBlocks/Basic';
@@ -11,6 +11,8 @@ import { GoPlus } from 'react-icons/go';
 import { AiOutlineDelete } from 'react-icons/ai';
 
 function IncomeAndExpenses() {
+  const history = useHistory();
+
   const { id } = useParams();
   const project = ProjectsService.get(parseInt(id));
 
@@ -19,7 +21,7 @@ function IncomeAndExpenses() {
   return (
     <Page>
       <Header title="Income and Expenses" backButton>
-        <GoPlus />
+        <GoPlus onClick={() => history.push(`/projects/incomeAndExpenses/new/${id}`)} />
         <AiOutlineDelete />
       </Header>
       <section id="content">
