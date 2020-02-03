@@ -20,8 +20,10 @@ function NewIncomeAndExpenses() {
   };
 
   const save = () => {
+    let IAE = { ...newIAE };
+    IAE.value = parseFloat(newIAE.value);
     ProjectsService.update(id, {
-      incomeAndExpenses: [...project.incomeAndExpenses, newIAE]
+      incomeAndExpenses: [...project.incomeAndExpenses, IAE]
     });
   };
 

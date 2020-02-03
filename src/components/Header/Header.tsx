@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactChildren } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { IoIosArrowBack } from 'react-icons/io';
 
@@ -65,8 +65,8 @@ const BackButton = styled(IoIosArrowBack)`
 
 interface Props {
   title: string,
-  backButton: boolean,
-  children: ReactChildren
+  backButton?: boolean,
+  children?: any
 }
 
 

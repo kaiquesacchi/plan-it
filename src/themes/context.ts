@@ -5,5 +5,5 @@ import light from './light';
 export default React.createContext({
   theme: light,
   themeName: 'light',
-  setTheme: () => {}
+  setTheme: (name: string) => {}
 });
