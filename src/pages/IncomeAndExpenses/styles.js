@@ -6,6 +6,22 @@ export const Page = styled.section`
   section#content {
     min-height: calc(100vh - 80px);
   }
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 60px;
+    background-color: inherit;
+    button {
+      background-color: inherit;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: ${props => props.theme.colorActive};
+    }
+  }
 `;
 
 export const BlockContent = styled.div`
