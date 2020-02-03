@@ -35,9 +35,9 @@ const Label = styled.label`
     }
   }
 `;
-function Checkbox({ callback = () => {} }) {
+function Checkbox({ callback = (checked: boolean) => {} }) {
   return (
-    <Label forHtml="checkbox">
+    <Label>
       <input
         id="checkbox"
         type="checkbox"

@@ -12,7 +12,7 @@ const Input = styled.input`
   }
 `;
 
-function Text(props) {
+function Text(props: object) {
   return <Input {...props} />;
 }
 export default Text;

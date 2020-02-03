@@ -62,7 +62,7 @@ const Slider = styled.div`
   }
 `;
 
-function Toggle({ initial = false, callback = () => {} }) {
+function Toggle({ initial = false, callback = (active: boolean) => {} }) {
   const [value, setValue] = useState(initial ? 'on' : 'off');
 
   const onClick = () => {
