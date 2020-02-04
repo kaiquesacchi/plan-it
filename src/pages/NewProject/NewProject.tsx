@@ -7,12 +7,14 @@ import ProjectsService from '../../services/Projects';
 
 import { Page } from './styles';
 
+import { Project } from '../../types/Projects';
+
 function NewProject() {
   const history = useHistory();
 
-  const [project, setProject] = useState({});
+  const [project, setProject] = useState<any>({});
 
-  const handleChange = event => {
+  const handleChange = (event: any) => {
     setProject({ ...project, [event.target.name]: event.target.value });
   };
 

@@ -1,26 +1,10 @@
-interface ProjectArtifact {
-  [index: string]: any;
-  title: string;
-  lightColor: string;
-  darkColor: string;
-}
-
-interface Project extends ProjectArtifact {
-  incomeAndExpenses: IncomeAndExpenses[];
-  date: Date;
-  notes: string[];
-  id: number;
-}
-
-interface IncomeAndExpenses {
-  title: string;
-  value: number;
-}
+import { ProjectArtifact, Project } from './../types/Projects';
 
 interface ProjectsObject {
   [id: number]: Project;
 }
 
+// Auxiliary functions _________________________________________________
 function getProjects(): ProjectsObject {
   return JSON.parse(localStorage.getItem('projects') || '{}');
 }
@@ -28,6 +12,8 @@ function getProjects(): ProjectsObject {
 function setProjects(projects: ProjectsObject) {
   localStorage.setItem('projects', JSON.stringify(projects));
 }
+
+// Exported functions __________________________________________________
 
 function create(project: ProjectArtifact): Project[] {
   // Transforms a ProjectArtifact in Project object and saves it on LocalStorage.
@@ -75,8 +61,3 @@ function remove(idList: number[]): Project[] {
 }
 
 export default { create, list, get, update, remove };
-
-/*
-let STOCK_PROJECTS = [{id: 0,title: 'Car Maintenance',lightColor: '#85CBCC',darkColor: '#41436A',incomeAndExpenses: [],notes: []},{id: 1,title: "Family's BBQ",lightColor: '#A8DEE0',darkColor: '#984063',incomeAndExpenses: [],notes: []},{id: 2,title: 'New Guitar',lightColor: '#F9E2AE',darkColor: '#C56C86',incomeAndExpenses: [],notes: []},{id: 3,title: 'Graduation',lightColor: '#FBC78D',darkColor: '#F64668',incomeAndExpenses: [],notes: []}
-  ];
-*/
