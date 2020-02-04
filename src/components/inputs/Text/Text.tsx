@@ -12,7 +12,11 @@ const Input = styled.input`
   }
 `;
 
-function Text(props: object) {
+interface Props {
+  [index: string]: any;
+}
+
+function Text(props: Props) {
   return <Input {...props} />;
 }
 export default Text;

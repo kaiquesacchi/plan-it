@@ -54,7 +54,7 @@ function list(): Project[] {
   return Object.values(projects);
 }
 
-function get(id: number): Project | undefined {
+function get(id: number): Project {
   return getProjects()[id];
 }
 

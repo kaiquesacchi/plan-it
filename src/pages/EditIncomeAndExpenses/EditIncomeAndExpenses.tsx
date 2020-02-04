@@ -10,13 +10,16 @@ import { Page } from './styles';
 function EditIncomeAndExpenses() {
   const history = useHistory();
 
-  const { id, index } = useParams();
-  const project = ProjectsService.get(parseInt(id));
+  const params: { [index: string]: any } = useParams();
+  const id = parseInt(params.id as string);
+  const index = parseInt(params.index as string);
+
+  const project = ProjectsService.get(id);
 
   const initialValues = project.incomeAndExpenses[index];
   const [IAE, setIAE] = useState(initialValues);
 
-  const handleChange = event => {
+  const handleChange = (event: any) => {
     setIAE({ ...IAE, [event.target.name]: event.target.value });
   };
 
