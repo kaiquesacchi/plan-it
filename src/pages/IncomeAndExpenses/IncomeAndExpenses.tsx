@@ -13,18 +13,19 @@ import { AiOutlineDelete } from 'react-icons/ai';
 function IncomeAndExpenses() {
   const history = useHistory();
 
-  const { id } = useParams();
-  const project = ProjectsService.get(parseInt(id));
+  const params: { [index: string]: any } = useParams();
+  const id = parseInt(params.id);
+  const project = ProjectsService.get(id);
 
   const [IAE, setIAE] = useState(project.incomeAndExpenses);
 
   const [removing, setRemoving] = useState(false);
-  const [removingList, setRemovingList] = useState([]);
+  const [removingList, setRemovingList] = useState<number[]>([]);
   const closeRemoving = () => {
     setRemovingList([]);
     setRemoving(false);
   };
-  const toggleList = (IAEIndex, checked) => {
+  const toggleList = (IAEIndex: number, checked: boolean) => {
     if (checked) setRemovingList([...removingList, IAEIndex]);
     else {
       const indexOnList = removingList.indexOf(IAEIndex);
@@ -37,7 +38,7 @@ function IncomeAndExpenses() {
     let newIAEList = [...IAE];
     let indexesToBeRemoved = [...removingList].sort((a, b) => a - b);
     while (indexesToBeRemoved.length) {
-      newIAEList.splice(indexesToBeRemoved.pop(), 1);
+      newIAEList.splice(indexesToBeRemoved.pop() as number, 1);
     }
     ProjectsService.update(id, { incomeAndExpenses: newIAEList });
     setIAE(newIAEList);
@@ -72,7 +73,7 @@ function IncomeAndExpenses() {
             <BasicFocusBlock
               key={index}
               selecting={removing}
-              callback={checked => toggleList(index, checked)}
+              callback={(checked: boolean) => toggleList(index, checked)}
             >
               <BlockContent
                 onClick={() => {
